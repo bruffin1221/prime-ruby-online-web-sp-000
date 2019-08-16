@@ -5,11 +5,14 @@ while i<num
   multiples<< ("#{num}".to_i%"#{i}".to_i)
     i+=1
   end
-  if multiples.include?(0) || multiples.include?([])
-    false
+  if multiples.none?(0)
+    true
   elsif num==2
     true
-  else true
+  elsif multiple.include?([])
+    false
+  else
+    false
   end
 end
 
@@ -20,11 +23,9 @@ def prime?(num)
     multiples<< ("#{num}".to_i%"#{i}".to_i).zero?
     i+=1
   end
-  if multiples.all?(false) && multiples!=[]
+  if multiples.all?(false) || num==2
+    true
+  elsif multiples==[] || multiples.any?(true)
     false
-  elsif num==2
-    true
-  else
-    true
   end
 end
